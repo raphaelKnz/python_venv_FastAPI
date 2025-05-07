@@ -20,4 +20,8 @@ if response.status_code == 200:
 else:
     print(f'o código do erro: {response.status_code}')
 
-print(dicionario_restaurantes['KFC'])
+
+for nome_restaurante, dados in dicionario_restaurantes.items():
+    nome_arquivo=f'{nome_restaurante}.json'
+    with open (nome_arquivo, 'w') as arquivo_restaurante:
+        json.dump(dados, arquivo_restaurante, indent = 4)
